@@ -8,15 +8,15 @@ public class App {
             Long seedB = Long.valueOf(args[1]);
             Generator<Long> generatorA = new NumberGeneratorImpl(seedA, 16807L, 2147483647L);
             Generator<Long> generatorB = new NumberGeneratorImpl(seedB, 48271L, 2147483647L);
-            NumberChecker checker = new BinaryNumberCheckerImpl(generatorA, generatorB);
-            var counter = 0;
+            NumberMatcher matcher = new NumberMatcherImpl(8);
+            var matchCount = 0;
             for (int x = 0; x < 1_000_000; x++) {
-                if (checker.isMatch()) {
-                    counter++;
+                if (matcher.match(generatorA.generate(), generatorB.generate())) {
+                    matchCount++;
                 }
             }
             System.out.println("The number of times a comparison gave a positive result after 1'000'000 (1 million) comparisons.");
-            System.out.println(String.format("With parameters %d and %d the result is %d.", seedA, seedB, counter));
+            System.out.println(String.format("With parameters %d and %d the result is %d.", seedA, seedB, matchCount));
         } catch (IndexOutOfBoundsException ex) {
             printAndExit("Invalid number of arguments supplied.");
         } catch (NumberFormatException ex) {
