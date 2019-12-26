@@ -6,8 +6,8 @@ public class App {
         try {
             Long seedA = Long.valueOf(args[0]);
             Long seedB = Long.valueOf(args[1]);
-            Generator<Long> generatorA = new NumberGeneratorImpl(seedA, 16807L);
-            Generator<Long> generatorB = new NumberGeneratorImpl(seedB, 48271L);
+            Generator<Long> generatorA = new NumberGeneratorImpl(seedA, 16807L, 2147483647L);
+            Generator<Long> generatorB = new NumberGeneratorImpl(seedB, 48271L, 2147483647L);
             NumberChecker checker = new BinaryNumberCheckerImpl(generatorA, generatorB);
             var counter = 0;
             for (int x = 0; x < 1_000_000; x++) {
