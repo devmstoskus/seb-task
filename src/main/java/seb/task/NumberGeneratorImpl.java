@@ -1,15 +1,13 @@
 package seb.task;
 
-public class NumberGeneratorImpl implements NamedGenerator<Long> {
+public class NumberGeneratorImpl implements Generator<Long> {
     private static final Long DIVISOR = 2147483647L;
     private Long seed;
     private Long factor;
-    private String name;
 
-    public NumberGeneratorImpl(Long seed, Long factor, String name) {
+    public NumberGeneratorImpl(Long seed, Long factor) {
         this.seed = seed;
         this.factor = factor;
-        this.name = name;
     }
 
     @Override
@@ -18,8 +16,4 @@ public class NumberGeneratorImpl implements NamedGenerator<Long> {
         return this.seed;
     }
 
-    @Override
-    public String getName() {
-        return this.name;
-    }
 }

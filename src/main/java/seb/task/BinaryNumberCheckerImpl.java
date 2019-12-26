@@ -1,10 +1,10 @@
 package seb.task;
 
 public class BinaryNumberCheckerImpl implements NumberChecker {
-    private NamedGenerator<Long> generatorA;
-    private NamedGenerator<Long> generatorB;
+    private Generator<Long> generatorA;
+    private Generator<Long> generatorB;
 
-    public BinaryNumberCheckerImpl(NamedGenerator<Long> generatorA, NamedGenerator<Long> generatorB) {
+    public BinaryNumberCheckerImpl(Generator<Long> generatorA, Generator<Long> generatorB) {
         this.generatorA = generatorA;
         this.generatorB = generatorB;
     }
